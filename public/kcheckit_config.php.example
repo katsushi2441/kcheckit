@@ -1,0 +1,63 @@
+<?php
+/**
+ * 実行時設定。このファイルをコピーして kcheckit_config.php を作り、
+ * 自分の値に書き換えてください。kcheckit_config.php はリポジトリに入りません。
+ */
+
+/* ── 1. ログイン ─────────────────────────────
+ * 管理パスワードのハッシュを作って貼ります。
+ *   php scripts/make_password_hash.php 'あなたのパスワード'
+ * 設定しないと管理画面には入れません。 */
+define('KCHK_ADMIN_PASSWORD_HASH', '');
+
+/* ── 2. 自社の情報（ここが判定の土台）───────────
+ * 自社サイトのURL。ここから事業内容を読み取り、
+ * 拾ってきた新着が関係あるかどうかの絞り込みに使います。 */
+define('KCHK_SITE_URL', 'https://example.co.jp/');
+
+// 通知先。担当者のメールアドレス。
+define('KCHK_NOTIFY_EMAIL', 'tantou@example.co.jp');
+
+// 会社名（メールの件名と報告書に出ます）
+define('KCHK_ORG_NAME', '株式会社サンプル');
+
+// 送信元メールアドレス。
+// 【重要】共有サーバーから送る場合、そのサーバーが送信ドメインのSPFに
+// 含まれていないと、受信側に捨てられます。届かないときはまずここを疑ってください。
+//   確認: dig +short TXT example.co.jp | grep spf
+define('KCHK_MAIL_FROM', 'info@example.co.jp');
+
+/* ── 3. 判定の精度を上げる（任意）─────────────
+ * 事業内容を自分の言葉で書くと、自社サイトから読み取るより精度が上がります。
+ * 業種・扱う商材・許認可・拠点などを2〜3行で。
+// define('KCHK_BUSINESS', '愛知県で建設業。内装工事と原状回復。産業廃棄物の収集運搬業の許可あり。従業員30名。');
+ */
+
+// 拾いたいキーワードを直接指定する（未設定なら事業内容から自動で作ります）
+// define('KCHK_KEYWORDS', '建設業,産業廃棄物,内装,労働安全,下請,建築基準');
+
+/* ── 4. AIによる絞り込み（任意）───────────────
+ * 設定しなくても、キーワード照合だけで動きます。
+ * 設定すると、キーワードに引っかからなかったものもAIが見ます。
+ *
+ * 【この製品の方針】AIには「関係するか」と「なぜそう思うか」だけを答えさせ、
+ * 「対応が必要か」は判断させません。決めるのは人です。
+ *
+ * ローカルのOllamaを使う場合:
+// define('KCHK_LLM_URL', 'http://127.0.0.1:11434/api/generate');
+// define('KCHK_LLM_MODEL', 'gemma4:12b-it-qat');
+// define('KCHK_LLM_TIMEOUT', 60);
+ */
+
+/* ── 5. 報告書の置き場所（任意）───────────────
+ * 既定では public/kcheckit_reports/ に静的HTMLで保存し、
+ * そのURLをメールに載せます。別の場所で公開する場合だけ設定してください。
+// define('KCHK_REPORT_BASE_URL', 'https://example.co.jp/checkit_reports');
+ */
+
+/* ── 6. 見た目（任意）───────────────────────── */
+// define('KCHK_APP_TITLE', 'Kurage Check It');
+
+/* ── 7. 設置先URL（任意）────────────────────── */
+// リバースプロキシ配下などで自動判定がずれる場合だけ設定してください。
+// define('KCHK_BASE_URL', 'https://example.co.jp/checkit');

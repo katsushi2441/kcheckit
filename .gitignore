@@ -1,0 +1,20 @@
+public/kcheckit_config.php
+# 監視対象・検知内容には取引先や競合の情報が入りうる。絶対にコミットしない。
+public/kcheckit_data/*
+!public/kcheckit_data/.htaccess
+public/kcheckit_reports/*
+!public/kcheckit_reports/.htaccess
+outputs/
+*.pyc
+__pycache__/
+
+# ── ここから下は「有償パッケージにだけ同梱する」もの ──
+# GitHubからOSSとして取得する人にはコードだけを渡す。
+# 教材とVWorkは、ダウンロード販売の価格の根拠なので公開しない。
+# 削除はしない。ローカルには置いたまま、scripts/build_package.sh で束ねる。
+vwork/
+docs/
+AGENTS.md
+CLAUDE.md
+INSTALL.md
+SUPPORT.md
