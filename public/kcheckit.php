@@ -141,6 +141,7 @@ input:focus,select:focus{outline:2px solid var(--teal);border-color:var(--teal)}
 footer.site{text-align:center;color:var(--muted);font-size:12.5px;padding:30px 20px 44px;
   border-top:1px solid var(--line);margin-top:20px}
 </style>
+<?php if (defined('KCHK_HEAD_EXTRA')) { echo KCHK_HEAD_EXTRA; } ?>
 </head>
 <body>
 <?php if (kchk_is_demo()): ?>

@@ -52,7 +52,9 @@ function kchk_store_report($items, $related, $checked_at) {
            . ".src{color:#55697a;font-size:12px}\n"
            . "a{color:#0a726b}\n"
            . "ul{padding-left:20px;font-size:14px}li{margin-bottom:7px}\n"
-           . "</style>\n</head>\n<body>\n<div class=\"wrap\">\n";
+           . "</style>\n"
+           . (defined('KCHK_HEAD_EXTRA') ? KCHK_HEAD_EXTRA . "\n" : '')
+           . "</head>\n<body>\n<div class=\"wrap\">\n";
 
     $html .= "<h1>チェック結果</h1>\n";
     $html .= "<p class=\"meta\">" . $h(date('Y年n月j日 H:i', $checked_at))
