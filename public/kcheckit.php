@@ -329,6 +329,6 @@ footer.site{text-align:center;color:var(--muted);font-size:12.5px;padding:30px 2
 <footer class="site"><div class="wrap">
   Kurage Check It<?php if (kchk_org_name() !== ''): ?>　/　<?php echo kchk_h(kchk_org_name()); ?><?php endif; ?>
 </div></footer>
-<?php if (($_SERVER['HTTP_HOST'] ?? '') === 'proto.exbridge.jp'): ?><p style="text-align:center;font-size:13px;margin:14px 0;color:#5d6b7a">これはデモです。<a href="https://kappstore.exbridge.jp/app.php?id=232b3c1d11b6a730&amp;ref=kcheckit" target="_blank" rel="noopener">この製品をオンプレミスで導入する（商品ページ）</a></p><?php endif; ?>
+<?php if (($_SERVER['HTTP_HOST'] ?? '') === 'proto.exbridge.jp'): ?><p style="text-align:center;font-size:13px;margin:14px 0;color:#5d6b7a">これはデモです。<a href="https://kappstore.exbridge.jp/app.php?id=232b3c1d11b6a730&amp;ref=kcheckit" target="_blank" rel="noopener">この製品をオンプレミスで導入する（商品ページ）</a></p><script src=https://kurage.exbridge.jp/partner-bar.js defer></script><?php endif; ?>
 </body>
 </html>
